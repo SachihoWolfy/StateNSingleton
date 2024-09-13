@@ -27,16 +27,41 @@ namespace Chapter.Singleton
 
         void OnGUI()
         {
-            if(GUILayout.Button("Next Scene"))
+            GUILayout.BeginArea(new Rect(100, 100, 100, 100));
+            if(SceneManager.sceneCountInBuildSettings - 1>SceneManager.GetActiveScene().buildIndex)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                if (GUILayout.Button("Next: " + GetNextSceneName()))
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
+            else
+            {
+                if (GUILayout.Button("Next: " + GetSceneNameByIndex(1)))
+                {
+                    SceneManager.LoadScene(1);
+                }
+            }
+            GUILayout.EndArea();
         }
 
-        // Update is called once per frame
-        void Update()
+        // Pulled from https://discussions.unity.com/t/how-to-get-scene-name-at-certain-buildindex/175723/2
+        // Still doesnt work tho ;w;
+        private static string GetSceneNameByIndex(int buildIndex)
         {
+            if (buildIndex > SceneManager.sceneCountInBuildSettings - 1)
+            {
+                Debug.LogErrorFormat("Incorrect buildIndex {0}!", buildIndex);
+                return null;
+            }
 
+            var scene = SceneManager.GetSceneByBuildIndex(buildIndex);
+            return scene.name;
+        }
+
+        private static string GetNextSceneName()
+        {
+            return GetSceneNameByIndex(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
