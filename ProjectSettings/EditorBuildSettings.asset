@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Command.unity
     guid: 43174be094cd60749879fa3497078f64
+  - enabled: 1
+    path: Assets/Scenes/ObjectPool.unity
+    guid: 3e0d823b3e53e6640ae20bb9eccb6d0d
+  - enabled: 1
+    path: Assets/Scenes/Observer.unity
+    guid: f6f0c6262ef20f34082a9558ab4eb832
   m_configObjects: {}
