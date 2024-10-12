@@ -9,6 +9,7 @@ public class NPCSpawner : MonoBehaviour
     private INPC m_Farmer;
     private INPC m_Beggar;
     private INPC m_Shopowner;
+    private INPC m_MountainMan;
 
     public void SpawnVillagers()
     {
@@ -30,6 +31,11 @@ public class NPCSpawner : MonoBehaviour
     {
         m_Shopowner = m_Factory.GetNPC(NPCType.Shopowner);
         MakeSomeoneSpeak(m_Shopowner);
+    }
+    public void SpawnMountainMan()
+    {
+        m_MountainMan = m_Factory.GetNPC(NPCType.MountainMan);
+        MakeSomeoneSpeak(m_MountainMan);
     }
     public void MakeSomeoneSpeak(INPC npc)
     {

@@ -22,6 +22,10 @@ public class NpcClient : MonoBehaviour
         {
             m_SpawnerNPC.SpawnShopowner();
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            m_SpawnerNPC.SpawnMountainMan();
+        }
     }
 
     public void SpeakLouder(string words)

@@ -6,7 +6,8 @@ public enum NPCType
 {
     Farmer,
     Beggar,
-    Shopowner
+    Shopowner,
+    MountainMan
 }
 public class NPCFactory : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class NPCFactory : MonoBehaviour
             case NPCType.Shopowner:
                 INPC shopowner = new Shopowner();
                 return shopowner;
+            case NPCType.MountainMan:
+                INPC mountainMan = new MountainMan();
+                return mountainMan;
         }
         return null;
     }
